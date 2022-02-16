@@ -3,7 +3,7 @@ import threading
 import os
 
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-s.bind(("192.168.225.242", 2222))
+s.bind(("192.168.0.109", 2222))
 
 print("\t\t\t====>  UDP CHAT APP  <====")
 print("==============================================")
@@ -26,7 +26,7 @@ def rec():
         print("\t\t\t\t >> " +  msg[0].decode()  )
         print(">> ")
 
-x1 = trheading.Thread( target = send )
+x1 = threading.Thread( target = send )
 x2 = threading.Thread( target = rec )
 
 x1.start()

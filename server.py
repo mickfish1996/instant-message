@@ -5,8 +5,8 @@ import socket
 s = socket.socket(socket.AF_INET , socket.SOCK_DGRAM )
 #binding IP and port 
 
-s.bind(("127.0.0.1",2222))
-print("Server started ...127.0.0.1:2222")
+s.bind(("192.168.0.109",2222))
+print("Server started ...192.168.0.109:2222")
 print("Waiting for Client response...") 
 #recieving data from client
 while True:
