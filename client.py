@@ -1,36 +1,12 @@
-from twisted.internet.protocol import DatagramProtocol
-from twisted.internet import reactor
-from random import randint
+import socket
 
-class Client(DatagramProtocol):
-    def __init__(self, host, port):
-        if host == "localhost":
-            host = "127.0.0.1"
+#client program
 
-        self.id = (host , port)
-        self.address = None
-        self.server = '127.0.0.1', 9999
-        print("Working on id: ", self.id)
+s = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
 
-    def startProtocol(self):
-        self.transport.write("ready".encode("utf-8"), self.server)
-
-    def datagramRecieved(self, datagram, addr):
-        datagram = datagram.decode('utf-8')
-
-        if addr == self.server:
-            print("Choose a client from these\n", datagram)
-            addresses = datagram.split('\n')
-            self.address = input("Write host:"), int(input("Write port:"))
-            reactor.callInThread(self.send_message)
-        else:
-            print(addr, ":", datagram)
-
-    def send_message(self):
-        while True:
-            self.transport.write(input(":::").encode("utf-8"), self.address)
-
-if __name__ == '__main__':
-    port = randint(1000,5000)
-    reactor.listenUDP(port , Client('localhost', port))
-    reactor.run()
+while True:
+       ip ,port = input("Enter server ip address and port number :\n").split()
+       m = input("Enter data to send server: ")
+       res = s.sendto(m.encode(),("127.0.0.1",2222)) 
+       if res:
+          print("\nsuccessfully send")

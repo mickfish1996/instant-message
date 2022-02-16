@@ -1,19 +1,13 @@
-from twisted.internet.protocol import DatagramProtocol
-from twisted.internet import reactor
+import socket      
 
+#AF_INET used for IPv4
+#SOCK_DGRAM used for UDP protocol
+s = socket.socket(socket.AF_INET , socket.SOCK_DGRAM )
+#binding IP and port 
 
-class Server(DatagramProtocol):
-    def __init__(self) -> None:
-        self.clients = set()
-
-    def datagramRecieved(self, datagram, addr):
-        datagram = datagram.decode("utf-8")
-        if datagram == "ready":
-            addresses = "\n".join([str(x) for x in self.clients])
-
-            self.transport.write(addresses.encode("utf-8"), addr)
-            self.clients.add(addr)
-
-if __name__ == "__main__":
-    reactor.listenUDP(9999, Server())
-    reactor.run()
+s.bind(("127.0.0.1",2222))
+print("Server started ...127.0.0.1:2222")
+print("Waiting for Client response...") 
+#recieving data from client
+while True:
+       print(s.recvfrom(1024))
