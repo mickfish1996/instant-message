@@ -1,7 +1,6 @@
 import socket
 import threading
 import os
-from random import randint
 
 class Sockets():
     def __init__(self):
