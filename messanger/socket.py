@@ -1,11 +1,15 @@
 import socket
 import threading
 import os
+from random import randint
 
 class Sockets():
     def __init__(self):
         self.s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        self.s.bind(("192.168.0.105", 2222))
+        server = socket.gethostbyname(socket.gethostname())
+        socketport = randint(1000,5000)
+        self.s.bind((server, socketport))
+        print(server, socketport)
         self.nm = None
         self.ip = None
         self.port = None
