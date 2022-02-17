@@ -7,7 +7,7 @@ class Sockets():
     def __init__(self):
         self.s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         server = socket.gethostbyname(socket.gethostname())
-        socketport = randint(1000,5000)
+        socketport = 2222
         self.s.bind((server, socketport))
         print(server, socketport)
         self.nm = None
