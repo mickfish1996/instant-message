@@ -16,7 +16,7 @@ def send():
     while True:
         ms = input(">> ")
         if ms == "quit":
-            os.exit(1)
+            os._exit(1)
         sm = f"{nm}  : {ms}"
         s.sendto(sm.encode(), (ip,int(port)))
 
