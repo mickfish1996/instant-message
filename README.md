@@ -24,8 +24,8 @@ I am using python as the languge and I am using the socket and threading package
 
 # Useful Websites
 
-* [Web Site Name](http://url.link.goes.here)
-* [Web Site Name](http://url.link.goes.here)
+* [Geeks for Geeks](https://www.geeksforgeeks.org/simple-chat-room-using-python/)
+* [Plain English](https://python.plainenglish.io/chat-app-using-udp-5b486241748c)
 
 # Future Work
 
