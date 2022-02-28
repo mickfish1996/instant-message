@@ -17,7 +17,7 @@ class Sockets():
         print(server, socketport)
         self.nm = None
         self.ip = None
-        self.port = socketport
+        self.port = 2222
         
     def set_name(self):    
         print("\t\t\t====>  UDP CHAT APP  <====")
