@@ -12,7 +12,7 @@ class Sockets():
         print(server, socketport)
         self.nm = None
         self.ip = None
-        self.port = None
+        self.port = 2222
         
     def set_name(self):    
         print("\t\t\t====>  UDP CHAT APP  <====")
@@ -20,7 +20,7 @@ class Sockets():
         self.nm = input("ENTER YOUR NAME: ")
         print("\nType 'quit' to exit.")
 
-        self.ip,self.port = input("Enter IP address and Port Number: ").split()
+        self.ip = input("Enter IP address: ")
 
     def send(self):    
         ms = input(">> ")
